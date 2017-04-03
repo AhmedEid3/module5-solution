@@ -20,6 +20,20 @@ function MenuService($http, ApiPath) {
     return info;
   }
 
+  service.getItem = function () {
+    var item  = "";
+    if(info.length > 0){
+      item = info[0].favoriteDish;
+    }
+      return $http.get(ApiPath + '/menu_items/' + item + '.json' )
+      .then(function (response) {
+      
+        return response.data;
+      }, function () {
+        console.log("Error");
+      });
+  }
+
   service.getCategories = function () {
     return $http.get(ApiPath + '/categories.json').then(function (response) {
       return response.data;

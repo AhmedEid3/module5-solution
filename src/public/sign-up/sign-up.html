@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="form-horizontal" novalidate name="reg"  ng-submit="signUp.submit()">
+  <form class="form-horizontal" novalidate name="reg" ng-submit="signUp.submit(reg)">
 
     <div class="form-group" >
       <label for="firstName" class="col-sm-2 control-label">First Name</label>
@@ -59,13 +59,12 @@
     <div class="form-group">
       <label for="phone" class="col-sm-2 control-label">Favorite Dish</label>
       <div class="col-sm-3">
-        <select class="form-control" ng-model="signUp.registration.favoriteDish"
-        placeholder="Dish Favorite">
-          <option ng-repeat="dish in signUp.menu">{{dish.short_name}}</option>
-        </select>
+        <input class="form-control" id="favoriteDish" name="favoriteDish"
+         ng-model="signUp.registration.favoriteDish" placeholder="Dish Favorite">
+
       </div>
     </div>
- <!-- ui-sref="public.menuitems({category: signUp.registration.favoriteDish})" -->
+
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-warning" ng-disabled="reg.$invalid"
@@ -73,5 +72,8 @@
       </div>
     </div>
   </form>
-
+  <div ng-if="signUp.saveInfoMsg">
+    <h3>Your information has been saved</h3>
+    <button type="button" class="btn btn-primary" ui-sref="public.my-info">Show your info</button>
+  </div>
 </div>
