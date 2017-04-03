@@ -1,0 +1,77 @@
+<div class="container">
+  <form class="form-horizontal" novalidate name="reg">
+
+    <div class="form-group" >
+      <label for="firstName" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="firstName" name="firstName"
+        ng-model="signUp.registration.firstName" placeholder="First Name" required>
+
+        <span ng-if="reg.firstName.$error.required && reg.firstName.$touched"
+         class="help-block">
+          The Field is required
+        </span>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="lastName" name="lastName"
+        ng-model="signUp.registration.lastName" placeholder="Last Name" required>
+        <span ng-if="reg.lastName.$error.required && reg.lastName.$touched"
+         class="help-block">
+          The Field is required
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Email" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="Email" name="Email"
+        ng-model="signUp.registration.Email" placeholder="Email" required>
+        <span ng-if="reg.Email.$error.required && reg.Email.$touched"
+         class="help-block">
+          The Field is required
+        </span>
+        <span ng-if="reg.Email.$error.email && reg.Email.$dirty"
+         class="help-block">
+          Type email as email@company.com
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone" class="col-sm-2 control-label">Phone Number</label>
+      <div class="col-sm-10">
+        <input type="phone" class="form-control" id="phone" name="phone"
+        ng-model="signUp.registration.phone" placeholder="Phone Number" required>
+        <span ng-if="reg.phone.$error.required && reg.phone.$touched"
+         class="help-block">
+          The Field is required
+        </span>
+        <span ng-if="reg.phone.$error.number && reg.phone.$dirty"
+         class="help-block">
+          Type as number only
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone" class="col-sm-2 control-label">Favorite Dish</label>
+      <div class="col-sm-3">
+        <select class="form-control" ng-model="signUp.registration.favoriteDish"
+        placeholder="Dish Favorite">
+          <option ng-repeat="dish in signUp.menu">{{dish.short_name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-warning" ng-disabled="reg.$invalid"
+         ui-sref="public.menuitems({category: signUp.registration.favoriteDish})">Submit </button>
+      </div>
+    </div>
+  </form>
+
+</div>
