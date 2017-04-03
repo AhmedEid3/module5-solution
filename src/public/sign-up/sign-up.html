@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="form-horizontal" novalidate name="reg">
+  <form class="form-horizontal" novalidate name="reg"  ng-submit="signUp.submit()">
 
     <div class="form-group" >
       <label for="firstName" class="col-sm-2 control-label">First Name</label>
@@ -65,11 +65,11 @@
         </select>
       </div>
     </div>
-
+ <!-- ui-sref="public.menuitems({category: signUp.registration.favoriteDish})" -->
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-warning" ng-disabled="reg.$invalid"
-         ui-sref="public.menuitems({category: signUp.registration.favoriteDish})">Submit </button>
+        >Submit </button>
       </div>
     </div>
   </form>

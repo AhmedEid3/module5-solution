@@ -1,1 +1,28 @@
-<h1>My info !!!</h1>
+<div class="container">
+
+<h1>{{myInfo.title}}</h1>
+<br>
+<div ng-if="myInfo.allInfo.length>0">
+  <table class="table">
+    <thead>
+      <tr>
+      <td>First Name</td> <td>Last Name</td> <td>Email</td> <td>Phone</td> <td>Favorit Dish</td>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{myInfo.allInfo[0].firstName}}</td>
+        <td>{{myInfo.allInfo[0].lastName}}</td>
+        <td>{{myInfo.allInfo[0].Email}}</td>
+        <td>{{myInfo.allInfo[0].phone}}</td>
+        <td>{{myInfo.allInfo[0].favoriteDish}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div ng-if="myInfo.allInfo.length==0">
+  <h3>please <a ui-sref="public.sign-up">Sign Up</a></h3>
+</div>
+
+</div>

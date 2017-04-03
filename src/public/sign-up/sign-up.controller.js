@@ -4,8 +4,8 @@
 angular.module('public')
 .controller("signUpController", signUpController);
 
-signUpController.$inject = ['menuCategories']
-function signUpController(menuCategories) {
+signUpController.$inject = ['menuCategories', 'MenuService']
+function signUpController(menuCategories, MenuService) {
   var signUp = this;
 
   signUp.registration = {
@@ -13,6 +13,11 @@ function signUpController(menuCategories) {
   }
 
   signUp.menu = menuCategories;
+
+  signUp.submit = function () {
+    console.log("submit");
+    MenuService.addInfo(signUp.registration);
+  }
 
 }
 
